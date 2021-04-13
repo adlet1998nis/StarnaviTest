@@ -1,0 +1,18 @@
+version: "3.9"
+
+x-environment-vars: &environment-vars
+  SECRET_KEY: "django-insecure-09()*_jl)$jbgl#jq29@qa!eoqb_=+#+)er0dcck368lrmhidx"
+
+services:
+  starnavi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python manage.py runserver 0.0.0.0:8000
+    environment:
+      <<: *environment-vars
+    volumes:
+      - .:/code
+
+  starnavi-db:
+    image: postgres:10.11-alpine

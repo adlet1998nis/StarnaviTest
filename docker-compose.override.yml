@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  starnavi:
+    ports:
+      - "8008:8000"
+
+  starnavi-db:
+    ports:
+      - "5433:5432"
